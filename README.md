@@ -24,7 +24,7 @@ Run the project once to match the sample session and take a screenshot. Run it a
 
  # Output
  
- ![output](https://github.com/bell-kevin/StudentScoresInFile/blob/main/sendHelp.PNG)
+ ![output](https://github.com/bell-kevin/Mod3StudentScoresInFile/blob/main/sendHelp.PNG)
 
 Submission: the specified screenshots (of execution of the program and successful unit tests) and the root folder for the project
 
