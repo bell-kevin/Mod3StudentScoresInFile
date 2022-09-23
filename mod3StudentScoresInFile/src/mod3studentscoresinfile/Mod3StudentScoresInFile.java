@@ -21,20 +21,21 @@ public class Mod3StudentScoresInFile {
         File outputFile = new File("gradebook.txt");
         FileWriter out;
         BufferedWriter writeFile;
-        String input, filenameOut = "", filenameIn = "", line;
+        String input, filenameOut = "", filenameIn = "", line = "", name;
+        double lowScore, highScore, averageScore, currentScore = 0, score;
         try {
             out = new FileWriter(outputFile);
             writeFile = new BufferedWriter(out);
             for (int i = 0; i < 10; i++) {
-                if (i == 0 % 2) {
+                if (i == 0 || i == 2 || i == 4 || i == 6 || i == 8) {
                     System.out.print("Enter student name: ");
-                    input = computerKeyboardInput.nextLine();
-                    writeFile.write(input);
+                    name = computerKeyboardInput.next();
+                    writeFile.write(name);
                     writeFile.newLine();
                 } else {
                     System.out.print("Enter test score: ");
-                    input = computerKeyboardInput.nextLine();
-                    writeFile.write(input);
+                    score = computerKeyboardInput.nextDouble();
+                    writeFile.write(String.valueOf(score));
                     writeFile.newLine();
                 } // end if/else if condition
             } // end for loop
@@ -67,6 +68,9 @@ public class Mod3StudentScoresInFile {
         } // end catch
         for (int i = 0; i < listOfWords.size(); i++) {
             System.out.println(listOfWords.get(i) + " ");
-        } // end for loop  
+        } // end for loop
+        System.out.println("Low score: ");
+        System.out.println("High score: ");
+        System.out.println("Average score: ");
     } // end main method  
 } // end Mod3StudentScoresInFile class
