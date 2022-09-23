@@ -2,7 +2,7 @@
 /** ****************************************************************************
  * ScoresJUnitTest.java
  * Kevin Bell
- *
+ * WARNING: THESE TESTS ARE NOT ACTUALLY GOOD TESTS
  * Objects read from files, calculate & display lowest, highest, & average score
  **************************************************************************** */
 import org.junit.Test;
@@ -12,10 +12,6 @@ import org.junit.runners.Parameterized;
 import java.util.Arrays;
 import java.util.Collection;
 
-/**
- *
- * @author 4800590195
- */
 @RunWith(Parameterized.class)
 public class ScoresJUnitTest {
 
