@@ -8,7 +8,6 @@ package mod3studentscoresinfile;
 
 import java.io.*;
 import java.nio.file.*;
-import java.nio.*;
 import java.util.*;
 
 public class Mod3StudentScoresInFile {
@@ -19,7 +18,7 @@ public class Mod3StudentScoresInFile {
         System.out.println("Module 3 Student Scores by Kevin Bell \n");
         path = Paths.get(filename);
         Scanner computerKeyboardInput = new Scanner(System.in);
-        File outputFile = new File("file.txt");
+        File outputFile = new File("gradebook.txt");
         FileWriter out;
         BufferedWriter writeFile;
         String input, filenameOut = "", filenameIn = "", line;
@@ -46,7 +45,7 @@ public class Mod3StudentScoresInFile {
             System.out.println("Problem writing to file.");
             System.out.println("Exception: " + e.getMessage());
         } // end try/catch block
-        File textFile = new File("file.txt"); // load info from text file
+        File textFile = new File("gradebook.txt"); // load info from text file
         FileReader in;
         BufferedReader readFile;
         String lineOfText = "";
@@ -68,7 +67,6 @@ public class Mod3StudentScoresInFile {
         } // end catch
         for (int i = 0; i < listOfWords.size(); i++) {
             System.out.println(listOfWords.get(i) + " ");
-        }
-        
+        } // end for loop  
     } // end main method  
 } // end Mod3StudentScoresInFile class
