@@ -22,6 +22,7 @@ public class Mod3StudentScoresInFile {
         FileWriter out;
         BufferedWriter writeFile;
         String name;
+        int count = 5;
         double lowScore, highScore = 0, averageScore = 0, score = 0, sum = 0;
         try {
             out = new FileWriter(outputFile);
@@ -82,7 +83,7 @@ public class Mod3StudentScoresInFile {
                 newLine7 = Double.parseDouble(line7),
                 newLine9 = Double.parseDouble(line9);
         sum = newLine5 + newLine1 + newLine3 + newLine7 + newLine9;
-        averageScore = sum / 5;
+        averageScore = sum / count;
         double number = Math.max(newLine1, newLine3),
                 highNumber = Math.max(number, newLine5),
                 higherNumber = Math.max(highNumber, newLine7),
