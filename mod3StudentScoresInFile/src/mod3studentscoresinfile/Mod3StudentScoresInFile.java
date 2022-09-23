@@ -9,8 +9,6 @@ package mod3studentscoresinfile;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class Mod3StudentScoresInFile {
 
@@ -23,9 +21,8 @@ public class Mod3StudentScoresInFile {
         File outputFile = new File("gradebook.txt");
         FileWriter out;
         BufferedWriter writeFile;
-        String input, filenameOut = "", filenameIn = "", line = "", name;
-        double lowScore = 0, highScore = 0, averageScore = 0, currentScore = 0,
-                score = 0, sum = 0;
+        String name;
+        double lowScore, highScore = 0, averageScore = 0, score = 0, sum = 0;
         try {
             out = new FileWriter(outputFile);
             writeFile = new BufferedWriter(out);
@@ -86,15 +83,15 @@ public class Mod3StudentScoresInFile {
                 newLine9 = Double.parseDouble(line9);
         sum = newLine5 + newLine1 + newLine3 + newLine7 + newLine9;
         averageScore = sum / 5;
-        double number = Math.max(newLine1, newLine3);
-        double highNumber = Math.max(number, newLine5);
-        double higherNumber = Math.max(highNumber, newLine7);
-        double highestNumber = Math.max(higherNumber, newLine9);
+        double number = Math.max(newLine1, newLine3),
+                highNumber = Math.max(number, newLine5),
+                higherNumber = Math.max(highNumber, newLine7),
+                highestNumber = Math.max(higherNumber, newLine9);
         highScore = highestNumber;
-        double kevin = Math.min(newLine1, newLine3);
-        double kevin2 = Math.min(kevin, newLine5);
-        double kevin3 = Math.min(kevin2, newLine7);
-        double kevin4 = Math.min(kevin3, newLine9);
+        double kevin = Math.min(newLine1, newLine3),
+                kevin2 = Math.min(kevin, newLine5),
+                kevin3 = Math.min(kevin2, newLine7),
+                kevin4 = Math.min(kevin3, newLine9);
         lowScore = kevin4;
         System.out.println("Low score: " + lowScore);
         System.out.println("High score: " + highScore);
