@@ -1,0 +1,10 @@
+Anna
+95.2
+Ben
+89.1
+Carl
+90.0
+Debbie
+92.4
+Emily
+88.0
