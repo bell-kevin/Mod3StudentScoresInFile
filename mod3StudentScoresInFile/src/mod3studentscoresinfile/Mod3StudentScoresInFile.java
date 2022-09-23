@@ -9,6 +9,8 @@ package mod3studentscoresinfile;
 import java.io.*;
 import java.nio.file.*;
 import java.util.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Mod3StudentScoresInFile {
 
@@ -22,7 +24,8 @@ public class Mod3StudentScoresInFile {
         FileWriter out;
         BufferedWriter writeFile;
         String input, filenameOut = "", filenameIn = "", line = "", name;
-        double lowScore, highScore, averageScore, currentScore = 0, score;
+        double lowScore = 0, highScore = 0, averageScore = 0, currentScore = 0,
+                score = 0, sum = 0;
         try {
             out = new FileWriter(outputFile);
             writeFile = new BufferedWriter(out);
@@ -48,17 +51,24 @@ public class Mod3StudentScoresInFile {
         } // end try/catch block
         File textFile = new File("gradebook.txt"); // load info from text file
         FileReader in;
-        BufferedReader readFile;
-        String lineOfText = "";
-        ArrayList<String> listOfWords = new ArrayList<>();
+        BufferedReader readFile = null;
+        String lineOfText;
+        ArrayList<String> gradeBook = new ArrayList<>();
+        String line1 = null, line3 = null, line5 = null, line7 = null,
+                line9 = null;
         try {
             in = new FileReader(textFile);
             readFile = new BufferedReader(in);
             while ((lineOfText = readFile.readLine()) != null) {
-                listOfWords.add(lineOfText);
+                gradeBook.add(lineOfText);
             } // end while loop
             readFile.close();
             in.close();
+            line1 = Files.readAllLines(Paths.get("gradebook.txt")).get(1);
+            line3 = Files.readAllLines(Paths.get("gradebook.txt")).get(3);
+            line5 = Files.readAllLines(Paths.get("gradebook.txt")).get(5);
+            line7 = Files.readAllLines(Paths.get("gradebook.txt")).get(7);
+            line9 = Files.readAllLines(Paths.get("gradebook.txt")).get(9);
         } catch (FileNotFoundException e) {
             System.out.println("File not found.");
             System.out.println("Exception: " + e.getMessage());
@@ -66,11 +76,28 @@ public class Mod3StudentScoresInFile {
             System.out.println("Problem reading file.");
             System.out.println("Exception: " + e.getMessage());
         } // end catch
-        for (int i = 0; i < listOfWords.size(); i++) {
-            System.out.println(listOfWords.get(i) + " ");
+        for (int i = 0; i < gradeBook.size(); i++) {
+            System.out.println(gradeBook.get(i) + " ");
         } // end for loop
-        System.out.println("Low score: ");
-        System.out.println("High score: ");
-        System.out.println("Average score: ");
+        double newLine1 = Double.parseDouble(line1),
+                newLine3 = Double.parseDouble(line3),
+                newLine5 = Double.parseDouble(line5),
+                newLine7 = Double.parseDouble(line7),
+                newLine9 = Double.parseDouble(line9);
+        sum = newLine5 + newLine1 + newLine3 + newLine7 + newLine9;
+        averageScore = sum / 5;
+        double number = Math.max(newLine1, newLine3);
+        double highNumber = Math.max(number, newLine5);
+        double higherNumber = Math.max(highNumber, newLine7);
+        double highestNumber = Math.max(higherNumber, newLine9);
+        highScore = highestNumber;
+        double kevin = Math.min(newLine1, newLine3);
+        double kevin2 = Math.min(kevin, newLine5);
+        double kevin3 = Math.min(kevin2, newLine7);
+        double kevin4 = Math.min(kevin3, newLine9);
+        lowScore = kevin4;
+        System.out.println("Low score: " + lowScore);
+        System.out.println("High score: " + highScore);
+        System.out.println("Average score: " + averageScore);
     } // end main method  
 } // end Mod3StudentScoresInFile class
